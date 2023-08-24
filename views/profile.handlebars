@@ -16,18 +16,18 @@
   </div>
 </div>
 
-    <form class="form new-poem-form">
+    <form class="form new-fact-form">
       <div class="form-group">
-        <label for="poem-title">Fact Title:</label>
-        <input class="form-input" type="text" id="poem-title" name="poem-title" />
+        <label for="fact-title">Fact Title:</label>
+        <input class="form-input" type="text" id="fact-title" name="fact-title" />
       </div>
 
       <div class="form-group">
-        <label for="poem-body">Start here...</label>
-        <textarea class="form-input" id="poem-body" name="poem-body"></textarea>
+        <label for="fact-body">Start here...</label>
+        <textarea class="form-input" id="fact-body" name="fact-body"></textarea>
       </div>
       <div class="form-group">
-        <button type="submit" class="btn btn-primary save-poem">Save</button>
+        <button type="submit" class="btn btn-primary save-fact">Save</button>
       </div>
     </form>
   </div>
@@ -39,7 +39,7 @@
     {{#each fact as |fact|}}
     <div class="row mb-2">
       <div class="col-md-8">
-        <h4><a href="/poetry/{{fact.id}}">{{fact.name}}</a></h4>
+        <h4><a href="/fact/{{fact.id}}">{{fact.name}}</a></h4>
       </div>
       <div class="col-md-4">
         <button class="btn btn-sm btn-danger" data-id="{{fact.id}}">DELETE</button>

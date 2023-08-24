@@ -1,11 +1,11 @@
 const newFormHandler = async (event) => {
   event.preventDefault();
 
-  const name = document.querySelector('#poem-title').value.trim();
-  const description = document.querySelector('#poem-body').value.trim();
+  const name = document.querySelector('#fact-title').value.trim();
+  const description = document.querySelector('#fact-body').value.trim();
 
   if (name && description) {
-    const response = await fetch(`/api/poetry`, {
+    const response = await fetch(`/api/fact`, {
       method: 'POST',
       body: JSON.stringify({ name, description }),
       headers: {
@@ -16,7 +16,7 @@ const newFormHandler = async (event) => {
     if (response.ok) {
       document.location.replace('/profile');
     } else {
-      alert('Failed to create poem');
+      alert('Failed to create fact');
     }
   }
 };
@@ -25,25 +25,25 @@ const delButtonHandler = async (event) => {
   if (event.target.hasAttribute('data-id')) {
     const id = event.target.getAttribute('data-id');
 
-    const response = await fetch(`/api/poetry/${id}`, {
+    const response = await fetch(`/api/fact/${id}`, {
       method: 'DELETE',
     });
 
     if (response.ok) {
       document.location.replace('/profile');
     } else {
-      alert('Failed to delete poem');
+      alert('Failed to delete fact');
     }
   }
 };
 
 document
-  .querySelector('.new-poem-form')
+  .querySelector('.new-fact-form')
   .addEventListener('submit', newFormHandler);
 
-let poemList;
-poemList = document.querySelector('.poems');
-console.log(poemList);
-if (poemList) {
-  poemList.addEventListener('click', delButtonHandler);
+let factsList;
+factsList = document.querySelector('.fact');
+console.log(factsList);
+if (factsList) {
+  factsList.addEventListener('click', delButtonHandler);
 }
