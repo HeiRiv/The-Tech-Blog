@@ -1,11 +1,11 @@
 const router = require('express').Router();
-const { Fact, User } = require('../models');
+const { Project, User } = require('../models');
 const withAuth = require('../utils/auth');
 
 router.get('/', async (req, res) => {
   try {
-    // Get all facts and JOIN with user data
-    const factData = await Fact.findAll({
+    // Get all projects and JOIN with user data
+    const projectData = await Project.findAll({
       include: [
         {
           model: User,
@@ -15,11 +15,11 @@ router.get('/', async (req, res) => {
     });
 
     // Serialize data so the template can read it
-    const facts = factData.map((fact) => fact.get({ plain: true }));
+    const projects = projectData.map((project) => project.get({ plain: true }));
 
     // Pass serialized data and session flag into template
-    res.render('login', {
-      facts,
+    res.render('homepage', {
+      projects,
       logged_in: req.session.logged_in,
     });
   } catch (err) {
@@ -27,9 +27,9 @@ router.get('/', async (req, res) => {
   }
 });
 
-router.get('/fact/:id', async (req, res) => {
+router.get('/project/:id', async (req, res) => {
   try {
-    const factData = await Fact.findByPk(req.params.id, {
+    const projectData = await Project.findByPk(req.params.id, {
       include: [
         {
           model: User,
@@ -38,10 +38,10 @@ router.get('/fact/:id', async (req, res) => {
       ],
     });
 
-    const fact = factData.get({ plain: true });
-    console.log(fact);
-    res.render('facts', {
-      ...fact,
+    const project = projectData.get({ plain: true });
+
+    res.render('project', {
+      ...project,
       logged_in: req.session.logged_in,
     });
   } catch (err) {
@@ -55,11 +55,10 @@ router.get('/profile', withAuth, async (req, res) => {
     // Find the logged in user based on the session ID
     const userData = await User.findByPk(req.session.user_id, {
       attributes: { exclude: ['password'] },
-      include: [{ model: Fact }],
+      include: [{ model: Project }],
     });
 
     const user = userData.get({ plain: true });
-
     console.log(user);
     res.render('profile', {
       ...user,

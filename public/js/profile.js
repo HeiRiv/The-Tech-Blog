@@ -1,13 +1,14 @@
 const newFormHandler = async (event) => {
   event.preventDefault();
 
-  const name = document.querySelector('#fact-title').value.trim();
-  const description = document.querySelector('#fact-body').value.trim();
+  const name = document.querySelector('#project-name').value.trim();
+  const needed_funding = document.querySelector('#project-funding').value.trim();
+  const description = document.querySelector('#project-desc').value.trim();
 
-  if (name && description) {
-    const response = await fetch(`/api/fact`, {
+  if (name && needed_funding && description) {
+    const response = await fetch(`/api/projects`, {
       method: 'POST',
-      body: JSON.stringify({ name, description }),
+      body: JSON.stringify({ name, needed_funding, description }),
       headers: {
         'Content-Type': 'application/json',
       },
@@ -16,7 +17,7 @@ const newFormHandler = async (event) => {
     if (response.ok) {
       document.location.replace('/profile');
     } else {
-      alert('Failed to create fact');
+      alert('Failed to create project');
     }
   }
 };
@@ -25,25 +26,22 @@ const delButtonHandler = async (event) => {
   if (event.target.hasAttribute('data-id')) {
     const id = event.target.getAttribute('data-id');
 
-    const response = await fetch(`/api/fact/${id}`, {
+    const response = await fetch(`/api/projects/${id}`, {
       method: 'DELETE',
     });
 
     if (response.ok) {
       document.location.replace('/profile');
     } else {
-      alert('Failed to delete fact');
+      alert('Failed to delete project');
     }
   }
 };
 
 document
-  .querySelector('.new-fact-form')
+  .querySelector('.new-project-form')
   .addEventListener('submit', newFormHandler);
 
-let factsList;
-factsList = document.querySelector('.fact');
-console.log(factsList);
-if (factsList) {
-  factsList.addEventListener('click', delButtonHandler);
-}
+document
+  .querySelector('.project-list')
+  .addEventListener('click', delButtonHandler);
