@@ -2,5 +2,10 @@
   {
     "name": "Why MVC is important",
     "description": "MVC allows developers to maintain a true separation of concerns, devising their code between the Model layer for data, the View layer for design, and the Controller layer for application logic."
+  },
+
+  {
+    "name": "An AI Startup Is Helping North American Diesel Trains Clean Up Their Act",
+    "description": "To solve those puzzles, RailVision collects data from rail operations to simulate train dynamics and uses an algorithm to determine the most fuel-efficient driving pattern. While the AI solution is still in its infancy, Jain says it has helped Metrolinx, a government agency that serves millions of riders in the province of Ontario, save more than 1.5 million liters of diesel fuel during a one-year experiment. RailVision also counts Via Rail Canada Inc., the country’s main intercity passenger train operator, as an early adopter."
   }
 ]
