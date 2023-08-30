@@ -26,7 +26,7 @@ Writing about tech can be just as important as making it. Developers spend plent
 
 
 
-This is the link for the website: 
+This is the link for the website: https://rivera-tech-blog-0d375e42fbc3.herokuapp.com/ 
 
 ## Credits 
 
