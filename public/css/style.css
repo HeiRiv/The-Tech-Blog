@@ -1,3 +1,16 @@
+body {
+  background-image: url("../images/TECH1.jpeg"); 
+  background-repeat: no-repeat; 
+  background-position: center;
+  background-attachment: fixed;
+  background-size: cover;
+  margin: 0;
+  padding: 0;
+  justify-content: center;
+  height: 200vh;
+}
+
+
 header, .project:not(:last-child) {
   border-bottom: 1px solid #ccc;
 }
