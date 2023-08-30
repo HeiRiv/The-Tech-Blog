@@ -22,6 +22,9 @@ Writing about tech can be just as important as making it. Developers spend plent
  
 😄 Please see below a quick view of the deployed application 😄 
 
+ <img width="1440" alt="Screenshot 2023-08-30 at 3 35 02 PM" src="https://github.com/HeiRiv/The-Tech-Blog/assets/128196586/96fd4b0e-c4fd-475b-b797-7507c28c1ccd">
+
+
 
 This is the link for the website: 
 
