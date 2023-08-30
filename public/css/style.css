@@ -11,7 +11,7 @@ body {
 }
 
 
-header, .project:not(:last-child) {
+header, .blog:not(:last-child) {
   border-bottom: 1px solid #ccc;
 }
 
